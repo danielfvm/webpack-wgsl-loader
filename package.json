@@ -1,7 +1,7 @@
 {
   "name": "webpack-wgsl-loader",
   "version": "1.0.0",
-  "description": "A webpack loader for wgsl shaders - includes support for nested imports.",
+  "description": "A webpack loader for wgsl shaders supporting nested imports.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {

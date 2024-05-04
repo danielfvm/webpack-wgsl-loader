@@ -1,15 +1,17 @@
 # Webpack loader for WGSL shaders
-[![NPM](https://nodei.co/npm/ts-shader-loader.png)](https://npmjs.org/package/ts-shader-loader)
+![Repository size](https://img.shields.io/github/repo-size/danielfvm/webpack-wgsl-loader?color=39d45f) 
+[![GitHub last commit](https://img.shields.io/github/last-commit/danielfvm/webpack-wgsl-loader?color=39d45f)](https://github.com/danielfvm/webpack-wgsl-loader/commits/master) 
+![License](https://img.shields.io/badge/license-MIT-39d45f) 
+[![Stargazers](https://img.shields.io/github/stars/danielfvm/webpack-wgsl-loader?color=39d45f&logo=github)](https://github.com/danielfvm/webpack-wgsl-loader/stargazers)
+[![NPM](https://nodei.co/npm/webpack-wgsl-loader.png)](https://npmjs.org/package/webpack-wgsl-loader)
 
-A WGSL shader loader for webpack, includes support for nested imports, 
+A WGSL shader loader for webpack, has support for nested imports, 
 allowing for smart code reuse among more complex shader implementations. 
-The shader is returned as a string. This project is a fork from the glsl 
-shader loader [ts-shader-loader](https://github.com/mentos1386/ts-shader-loader).
-
 
 ## Quick Guide
 
 #### 1. Install
+
 ```shell
 npm install --save-dev webpack-wgsl-loader
 ```
@@ -21,8 +23,10 @@ npm install --save-dev webpack-wgsl-loader
     module: {
         rules: [
             {
-                test: /\.(wgsl)$/,
-                loader: 'webpack-wgsl-loader'
+                test: /\.(wgsl)/,
+                use: {
+                  loader: 'webpack-wgsl-loader'
+                }
             }
         ]
     }
@@ -34,18 +38,20 @@ Create a `wgsl.d.ts` file in your project and add the following in to it:
 
 ```ts
 declare module "*.wgsl" {
-  const value: string;
+  const value: GPUShaderModuleDescriptor;
   export default value;
 }
 ```
 
 #### 4. Import shaders
 
+Shaders are imported as `GPUShaderModuleDescriptor`.
 ```javascript
 import myShader from './myShader.wgsl';
 
-console.log(myShader);
+const shaderModule = device.createShaderModule(myShader);
 ```
+> **Note:** Currently only the `code` field is set by the loader, `sourceMap` field might be supported in the future.
 
 
 ## Importing
@@ -64,10 +70,10 @@ src/
 ---- shaders/
 ---- ---- includes/
 ---- ---- ---- perlin-noise.wgsl
----- ---- fragment.wgsl
+---- ---- shader.wgsl
 ```
 
-If we `import` `fragment.wgsl` shader inside `main.ts`:
+If we `import` `shader.wgsl` shader inside `main.ts`:
 
 ```javascript
 import shader from '../shaders/fragment.wgsl';
@@ -89,6 +95,16 @@ Imported files are inserted directly into the source file in place of the
 if you get syntax errors, please first check that shader works as one 
 contiguous file before raising an issue.
 
+Files are only imported once, so if you have the same import in multiple
+files, it will only be included once, preventing duplicate code and circular imports.
+
+
+## Fork
+
+This project is a fork of [ts-shader-loader](https://github.com/mentos1386/ts-shader-loader) which is a webgl glsl shader loader.
+If you need a glsl webpack loader you should look at *ts-shader-loader* project instead.
+
+
 ## TODO
 
-+ Deduplicate imports, to prevent code clobbering and conflicts at runtime
++ Add support for source maps
