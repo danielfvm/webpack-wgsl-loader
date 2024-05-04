@@ -24,10 +24,8 @@ npm install --save-dev webpack-wgsl-loader
     module: {
         rules: [
             {
-                test: /\.(wgsl)/,
-                use: {
-                  loader: 'webpack-wgsl-loader'
-                }
+                test: /\.wgsl/,
+                loader: 'webpack-wgsl-loader'
             }
         ]
     }
