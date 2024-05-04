@@ -3,10 +3,11 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/danielfvm/webpack-wgsl-loader?color=39d45f)](https://github.com/danielfvm/webpack-wgsl-loader/commits/master) 
 ![License](https://img.shields.io/badge/license-MIT-39d45f) 
 [![Stargazers](https://img.shields.io/github/stars/danielfvm/webpack-wgsl-loader?color=39d45f&logo=github)](https://github.com/danielfvm/webpack-wgsl-loader/stargazers)
+
 [![NPM](https://nodei.co/npm/webpack-wgsl-loader.png)](https://npmjs.org/package/webpack-wgsl-loader)
 
-A WGSL shader loader for webpack, has support for nested imports, 
-allowing for smart code reuse among more complex shader implementations. 
+A WGSL shader loader for webpack. 
+Supports nested imports, allowing for smart code reuse among more complex shader implementations. 
 
 ## Quick Guide
 
@@ -82,7 +83,7 @@ import shader from '../shaders/fragment.wgsl';
 We can have that shader include other `.wgsl` files inline, like so:
 
 ```sass
-@import "./includes/perlin-noise.glsl";
+@import "./includes/perlin-noise.glsl"
 ```
 
 > **N.B.** all includes within `.wgsl` are relative to the file doing the importing.
