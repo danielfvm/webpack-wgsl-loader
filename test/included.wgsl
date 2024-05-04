@@ -1,0 +1,3 @@
+// included
+
+@import "./nestedIncluded.wgsl"

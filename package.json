@@ -1,0 +1,56 @@
+{
+  "name": "webpack-wgsl-loader",
+  "version": "1.0.0",
+  "description": "A webpack loader for wgsl shaders - includes support for nested imports.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint",
+    "build": "tsc",
+    "prepublishOnly": "npm run test && npm run lint && npm run build"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/index.d.ts",
+    "lib/index.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielfvm/webpack-wgsl-loader.git"
+  },
+  "keywords": [
+    "wgsl",
+    "shader",
+    "webgpu",
+    "webpack",
+    "loader",
+    "import",
+    "include",
+    "typescript"
+  ],
+  "author": "DeanCode (https://github.com/danielfvm/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielfvm/webpack-wgsl-loader/issues"
+  },
+  "homepage": "https://github.com/danielfvm/webpack-wgsl-loader#readme",
+  "dependencies": {
+    "loader-utils": "^3.2.0"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.40",
+    "@types/jest": "^28.1.8",
+    "@types/loader-utils": "^2.0.3",
+    "@types/memory-fs": "^0.3.3",
+    "@types/node": "^18.6.5",
+    "@typescript-eslint/eslint-plugin": "^5.33.0",
+    "@typescript-eslint/parser": "^5.33.0",
+    "eslint": "^8.21.0",
+    "jest": "^28.1.3",
+    "memory-fs": "^0.5.0",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0"
+  }
+}
