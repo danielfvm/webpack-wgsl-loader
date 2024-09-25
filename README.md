@@ -101,7 +101,7 @@ files, it will only be included once, preventing duplicate code and circular imp
 ## Fork
 
 This project is a fork of [ts-shader-loader](https://github.com/mentos1386/ts-shader-loader) which is a webgl glsl shader loader.
-If you need a glsl webpack loader you should look at *ts-shader-loader* project instead.
+If you need a glsl webpack loader you should look at that project instead.
 
 
 ## TODO
