@@ -18,7 +18,7 @@ test("extension", async () => {
   if (data.modules === undefined) return;
 
   expect(data.modules[0].source).toBe(
-    "export default {\"code\":" + shaderContents("exampleShader.wgsl") + "}"
+    "export default {\"code\":" + shaderContents("exampleShader.wgsl") + ",\"label\":\"exampleShader.wgsl\"}"
   );
 });
 
@@ -31,6 +31,6 @@ test("include", async () => {
 
   if (data.modules === undefined) return;
   expect(data.modules[0].source).toBe(
-    "export default {\"code\":\"// included\\n\\n// nested included\\n\"}"
+    "export default {\"code\":\"// included\\n\\n// nested included\\n\",\"label\":\"includer.wgsl\"}"
   );
 });

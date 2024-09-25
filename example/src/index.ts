@@ -25,6 +25,8 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 
   console.log(triangleShader);
+  triangleShader.label = "Custom Label";
+  console.log(triangleShader);
 
   // Load shader and create pipeline
   const shaderModule = device.createShaderModule(triangleShader);

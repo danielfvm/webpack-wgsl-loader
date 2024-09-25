@@ -148,6 +148,7 @@ export function programToShader(prog: Program): GPUShaderModuleDescriptor {
 
   return {
     code: prog.code,
+    label: prog.sourceMap.file,
 
     // TODO: Figure out why sourceMap doesn't work.
     // Resources:
